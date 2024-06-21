@@ -8,7 +8,7 @@ const SignupForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
   // set state for form validation
-  const [validated] = useState(false);
+  const [validated, setValidated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
@@ -26,6 +26,8 @@ const SignupForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
+
+    setValidated(true);
 
     try {
       const response = await createUser(userFormData);
